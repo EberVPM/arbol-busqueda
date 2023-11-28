@@ -33,6 +33,7 @@ public:
     ArbolBusqueda() :arbol(nullptr) {};
     bool vacia() const;
     Nodo<T>* localiza(T elem);
+    T recupera(Nodo<T>* pos);
     void inserta(T elemento);
     Nodo<T>* menor();
     Nodo<T>* mayor();
@@ -84,6 +85,16 @@ void ArbolBusqueda<T>::insertaR(Nodo<T>* &arbolr, T elem) {
 template <class T>
 Nodo<T>* ArbolBusqueda<T>::localiza(T elem) {
     return localizar(arbol, elem);
+}
+
+template <class T>
+T ArbolBusqueda<T>::recupera(Nodo<T>* pos) {
+    if (arbol == nullptr || pos == nullptr) {
+        std::cout << "Error de excepcion, insuficiencia de datos" << std::endl;
+        return -1;
+    }
+
+    return pos->elem;
 }
 
 template <class T>
